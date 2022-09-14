@@ -1,0 +1,23 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "É possível empurrar objetos ao encostar nos seus lados! Tente empurrar para o lado [wave amp=25 freq=2][color=#A5EFAC]Direito.[/color][/wave]"
+		},
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "default-theme.cfg"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.5
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.4",
+		"file": "timeline-1661474275.json",
+		"name": "MecânicaEmpurrar"
+	}
+}

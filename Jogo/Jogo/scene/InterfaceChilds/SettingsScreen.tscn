@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://script/ControlsGD/ControlsScreen.gd" type="Script" id=1]
+[ext_resource path="res://font/PressStart2P.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=17]
+size = 26
+extra_spacing_top = 12
+extra_spacing_bottom = 6
+extra_spacing_space = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=11]
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 7 )
+Button/styles/hover = SubResource( 8 )
+Button/styles/normal = SubResource( 9 )
+Button/styles/pressed = SubResource( 10 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 25
+extra_spacing_top = 5
+extra_spacing_bottom = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="SettingsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preto Fundo" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.415686 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -437.682
+margin_top = -141.955
+margin_right = 434.318
+margin_bottom = 226.045
+custom_fonts/font = SubResource( 17 )
+text = "          Settings:
+Music Volume:        << 100 >>
+Sounds Efeccts Volume: << 100 >>
+Toggle FullScreen:      | X |
+Toggle Borderless:      | X |"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controller" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -79.5
+margin_top = -50.0
+margin_right = 79.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Return" type="Button" parent="Controller"]
+margin_right = 159.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -1180.32, -182.84 )
+theme = SubResource( 11 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+text = "Return"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Controller/Return" to="." method="_on_Return_pressed"]

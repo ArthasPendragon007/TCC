@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://font/PressStart2P.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Script/player/ESC/ControlsScreenESC.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+extra_spacing_top = 12
+extra_spacing_bottom = 6
+extra_spacing_space = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=6]
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 25
+extra_spacing_top = 5
+extra_spacing_bottom = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="SettingsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Preto Fundo" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.415686 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -438.0
+margin_top = -142.0
+margin_right = 600.0
+margin_bottom = 226.0
+custom_fonts/font = SubResource( 1 )
+text = "          Settings:
+Music Volume:        << 100 >>
+Sound Efecct Volume:  << 100 >>
+Toggle FullScreen:      | X |
+Toggle Borderless:      | X |"
+
+[node name="Controller" type="VBoxContainer" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -79.5
+margin_top = -50.0
+margin_right = 79.5
+
+[node name="Return" type="Button" parent="CanvasLayer/Controller"]
+margin_right = 159.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( -1180.32, -182.84 )
+theme = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 11 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+text = "Return"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CanvasLayer/Controller/Return" to="." method="_on_Return_pressed"]

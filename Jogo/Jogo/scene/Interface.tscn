@@ -1,0 +1,177 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://font/PressStart2P.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://script/InterfaceScreen/Interface.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="Theme" id=5]
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 1 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 25
+extra_spacing_top = 5
+extra_spacing_bottom = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 47
+font_data = ExtResource( 1 )
+
+[node name="startscreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 2
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controller" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -67.4549
+margin_right = 100.0
+margin_bottom = 114.545
+custom_constants/separation = -6
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StartBtn" type="Button" parent="Controller"]
+margin_right = 200.0
+margin_bottom = 50.0
+focus_neighbour_top = NodePath("../QuitBtn")
+focus_neighbour_bottom = NodePath("../ControlsBtn")
+theme = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+toggle_mode = true
+keep_pressed_outside = true
+text = "Start"
+
+[node name="ControlsBtn" type="Button" parent="Controller"]
+margin_top = 44.0
+margin_right = 200.0
+margin_bottom = 94.0
+rect_pivot_offset = Vector2( -1180.32, -182.84 )
+focus_neighbour_top = NodePath("../StartBtn")
+focus_neighbour_bottom = NodePath("../SettingsBtn")
+theme = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+toggle_mode = true
+text = "Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsBtn" type="Button" parent="Controller"]
+margin_top = 88.0
+margin_right = 200.0
+margin_bottom = 138.0
+rect_pivot_offset = Vector2( -1180.32, -182.84 )
+focus_neighbour_top = NodePath("../ControlsBtn")
+focus_neighbour_bottom = NodePath("../QuitBtn")
+theme = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+toggle_mode = true
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitBtn" type="Button" parent="Controller"]
+margin_top = 132.0
+margin_right = 200.0
+margin_bottom = 182.0
+focus_neighbour_top = NodePath("../SettingsBtn")
+focus_neighbour_bottom = NodePath("../StartBtn")
+theme = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+toggle_mode = true
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -163.698
+margin_top = 80.9086
+margin_right = 165.302
+margin_bottom = 127.909
+custom_fonts/font = SubResource( 11 )
+text = "Re:Born"
+
+[connection signal="focus_exited" from="." to="." method="_on_startscreen_focus_exited"]
+[connection signal="hide" from="Controller" to="." method="_on_Controller_hide"]
+[connection signal="pressed" from="Controller/StartBtn" to="." method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="Controller/ControlsBtn" to="." method="_on_ControlsBtn_pressed"]
+[connection signal="pressed" from="Controller/SettingsBtn" to="." method="_on_SettingsBtn_pressed"]
+[connection signal="pressed" from="Controller/QuitBtn" to="." method="_on_QuitBtn_pressed"]
