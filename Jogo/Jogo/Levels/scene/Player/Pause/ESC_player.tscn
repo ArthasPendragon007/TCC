@@ -95,6 +95,12 @@ Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 4 )
 Button/styles/pressed = SubResource( 5 )
 
+[sub_resource type="DynamicFont" id=11]
+size = 25
+extra_spacing_top = 5
+extra_spacing_bottom = 20
+font_data = ExtResource( 1 )
+
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
@@ -106,12 +112,6 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="DynamicFont" id=11]
-size = 25
-extra_spacing_top = 5
-extra_spacing_bottom = 20
-font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 47
@@ -130,7 +130,7 @@ __meta__ = {
 light_mask = 2
 margin_left = -493.0
 margin_top = -321.0
-margin_right = 1428.0
+margin_right = 3201.0
 margin_bottom = 909.0
 color = Color( 0, 0, 0, 0.294118 )
 
@@ -160,16 +160,17 @@ margin_bottom = 50.0
 focus_neighbour_top = NodePath("../QuitBtn")
 focus_neighbour_bottom = NodePath("../ControlsBtn")
 theme = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
 custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 custom_constants/hseparation = 0
+custom_fonts/font = SubResource( 11 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 toggle_mode = true
 action_mode = 0
 text = "Continue"
@@ -182,15 +183,16 @@ rect_pivot_offset = Vector2( -1180.32, -182.84 )
 focus_neighbour_top = NodePath("../StartBtn")
 focus_neighbour_bottom = NodePath("../SettingsBtn")
 theme = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 11 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 text = "Controls"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -204,15 +206,16 @@ rect_pivot_offset = Vector2( -1180.32, -182.84 )
 focus_neighbour_top = NodePath("../ControlsBtn")
 focus_neighbour_bottom = NodePath("../FullScreenBtn")
 theme = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 11 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 text = "Settings"
 
 [node name="FullScreenBtn" type="Button" parent="CanvasLayer/Controller"]
@@ -223,15 +226,16 @@ rect_pivot_offset = Vector2( -1180.32, -182.84 )
 focus_neighbour_top = NodePath("../SettingsBtn")
 focus_neighbour_bottom = NodePath("../MenuBtn")
 theme = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 11 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 text = "Fullscreen"
 
 [node name="MenuBtn" type="Button" parent="CanvasLayer/Controller"]
@@ -242,15 +246,16 @@ rect_pivot_offset = Vector2( -1180.32, -182.84 )
 focus_neighbour_top = NodePath("../FullScreenBtn")
 focus_neighbour_bottom = NodePath("../QuitBtn")
 theme = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 11 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 text = "Menu"
 
 [node name="QuitBtn" type="Button" parent="CanvasLayer/Controller"]
@@ -260,15 +265,16 @@ margin_bottom = 465.0
 focus_neighbour_top = NodePath("../MenuBtn")
 focus_neighbour_bottom = NodePath("../StartBtn")
 theme = SubResource( 6 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_fonts/font = SubResource( 11 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.713726, 0.713726, 0.713726, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
