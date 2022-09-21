@@ -1,18 +1,13 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Pacotes/CaixaEmpurravel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/scene/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Script/Fall_zone.gd" type="Script" id=3]
 [ext_resource path="res://Levels/Level_1/fase_1.2/Chegada_fase1_2.gd" type="Script" id=4]
-[ext_resource path="res://Terrain/paralax_background/5 - Sky_color.png" type="Texture" id=5]
-[ext_resource path="res://Terrain/arvores1.png" type="Texture" id=6]
+[ext_resource path="res://Levels/ParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Terrain/paralax_background/tilesets_fase_1/terrenofaseum.png" type="Texture" id=7]
-[ext_resource path="res://Terrain/arvores.png" type="Texture" id=8]
 [ext_resource path="res://Terrain/paralax_background/tilesets_fase_1/TileSet_details.png" type="Texture" id=9]
-[ext_resource path="res://Terrain/paralax_background/4 - Cloud_cover_2.png" type="Texture" id=10]
-[ext_resource path="res://Terrain/paralax_background/rain.png" type="Texture" id=11]
 [ext_resource path="res://Pacotes/Transition_In.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Terrain/Fundo 2.png" type="Texture" id=13]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 12.7117, 16, 0.767036, 15.8409, 0.767036, 0.0940933, 13.2725, 0.0940933 )
@@ -772,25 +767,6 @@ extents = Vector2( 2.83545, 74.2115 )
 [sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 49.1147, 39.0512 )
 
-[sub_resource type="StreamTexture" id=41]
-load_path = "res://.import/Fundo 1.png-cb7d30b844fa956effa266577dee28c9.stex"
-
-[sub_resource type="Shader" id=42]
-code = "shader_type canvas_item;
-
-uniform vec2 Direction = vec2(1.0,0.0);
-uniform float Speed = 0.02f;
-
-void fragment ()
-{
-	COLOR = texture(TEXTURE, UV + (Direction * TIME * Speed));
-}"
-
-[sub_resource type="ShaderMaterial" id=43]
-shader = SubResource( 42 )
-shader_param/Direction = Vector2( 1, -1 )
-shader_param/Speed = 0.4
-
 [node name="Segundo_Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
@@ -848,79 +824,7 @@ shape = SubResource( 40 )
 
 [node name="Transition_In" parent="." instance=ExtResource( 12 )]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ceu" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 576, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ceu"]
-modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
-position = Vector2( -5, -6 )
-scale = Vector2( 2, 2.88462 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="fundo_cima" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.7, 1 )
-motion_mirroring = Vector2( 576, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/fundo_cima"]
-position = Vector2( 203.231, 411.415 )
-scale = Vector2( 2, 0.7 )
-texture = ExtResource( 13 )
-
-[node name="fundo_baixo" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.7, 1 )
-motion_mirroring = Vector2( 576, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/fundo_baixo"]
-light_mask = 8
-position = Vector2( -46.221, 149.491 )
-scale = Vector2( 2, 2 )
-texture = SubResource( 41 )
-centered = false
-
-[node name="background_arvores" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 576, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/background_arvores"]
-position = Vector2( -41, 92 )
-scale = Vector2( 2.167, 2 )
-texture = ExtResource( 8 )
-centered = false
-
-[node name="frontend_arvores" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 576, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/frontend_arvores"]
-position = Vector2( -51, 92 )
-scale = Vector2( 2.167, 2 )
-texture = ExtResource( 6 )
-centered = false
-
-[node name="rain" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 576, 0 )
-
-[node name="rainSprite" type="Sprite" parent="ParallaxBackground/rain"]
-modulate = Color( 1, 1, 1, 0.666667 )
-light_mask = 4
-material = SubResource( 43 )
-position = Vector2( 3, 7 )
-scale = Vector2( 2.00347, 2.45038 )
-texture = ExtResource( 11 )
-centered = false
-
-[node name="Arvores_top" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.6, 0.8 )
-motion_mirroring = Vector2( 576, 0 )
-
-[node name="arvoreSprite" type="Sprite" parent="ParallaxBackground/Arvores_top"]
-light_mask = 2
-position = Vector2( -32, -10 )
-scale = Vector2( 2, 2.19712 )
-texture = ExtResource( 10 )
-centered = false
+[node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
 
 [connection signal="body_entered" from="Fall_zone" to="Fall_zone" method="_on_Fall_zone_body_entered"]
 [connection signal="body_entered" from="Dialogo_Empurrar" to="Player" method="_on_Dialogo_Empurrar_body_entered"]
