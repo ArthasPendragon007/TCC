@@ -45,6 +45,10 @@ func _physics_process(delta: float) -> void:
 	_unhandled_input(condic)
 	push(delta)
 func push(delta) -> void:
+	
+	if pushR.is_colliding() or pushL.is_colliding():
+		animate.play("run")
+		matriz[0] = true
 	if pushR.is_colliding():
 		var object = pushR.get_collider()
 		object.move_and_slide(Vector2(17,0) * 300 * delta)
@@ -93,13 +97,12 @@ func jump(delta) -> void:
 		velocity.y = lerp(velocity.y, 0, 0.3)
 func animated() -> void:
 	
-	if is_on_floor(): # se estar no chão faça isso
+	if is_on_floor() and (!pushL.is_colliding() and !pushR.is_colliding()): # se estar no chão faça isso
 		
 		if abs(velocity.x) < 15: # se a velocity.x absoluta for menor que 20 entao faça isso 
 			animate.play("idle") # pegue o $animate e rode a animação chamada "idle"
 		elif abs(velocity.x) > 15: # se a velocity.x absoluta for maior que 20 faça isso
 			animate.play("run") # pegue o $animate e rode a ani,ação chamada "idle"
-		
 		if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"): # se apertar o botão "ui_right" ou "ui_left" faça isso
 			matriz[0] = true  # ativa a propriedade do animate chamada 'playing'
 		elif Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left"): # se parar de apertar o botao "ui_right" ou "ui_left" faça isso

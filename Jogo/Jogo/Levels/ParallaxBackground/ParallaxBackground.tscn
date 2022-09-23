@@ -29,6 +29,7 @@ shader_param/Speed = 0.5
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="ceu" type="ParallaxLayer" parent="."]
+visible = false
 motion_mirroring = Vector2( 576, 0 )
 
 [node name="Sprite" type="Sprite" parent="ceu"]
@@ -61,10 +62,11 @@ texture = SubResource( 1 )
 centered = false
 
 [node name="frontend_arvores" type="ParallaxLayer" parent="."]
+position = Vector2( 1, 0 )
 motion_mirroring = Vector2( 576, 0 )
 
 [node name="Sprite" type="Sprite" parent="frontend_arvores"]
-position = Vector2( 17, -2 )
+position = Vector2( -128, 4 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
@@ -80,6 +82,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="rain" type="ParallaxLayer" parent="."]
+visible = false
 motion_mirroring = Vector2( 576, 0 )
 
 [node name="rainSprite" type="Sprite" parent="rain"]
