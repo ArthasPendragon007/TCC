@@ -53,12 +53,6 @@ Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 4 )
 Button/styles/pressed = SubResource( 5 )
 
-[sub_resource type="DynamicFont" id=11]
-size = 25
-extra_spacing_top = 5
-extra_spacing_bottom = 20
-font_data = ExtResource( 1 )
-
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
@@ -71,6 +65,12 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
+[sub_resource type="DynamicFont" id=11]
+size = 25
+extra_spacing_top = 5
+extra_spacing_bottom = 20
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=12]
 size = 100
 font_data = ExtResource( 1 )
@@ -80,6 +80,9 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 light_mask = 2
@@ -113,17 +116,16 @@ margin_bottom = 50.0
 focus_neighbour_left = NodePath("../QuitBtn")
 focus_neighbour_right = NodePath("../MenuBtn")
 theme = SubResource( 6 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.843137, 0.560784, 0.00392157, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
-custom_constants/hseparation = 0
-custom_fonts/font = SubResource( 11 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_constants/hseparation = 0
 toggle_mode = true
 action_mode = 0
 text = "Reniciar"
@@ -136,16 +138,15 @@ rect_pivot_offset = Vector2( -1180.32, -182.84 )
 focus_neighbour_left = NodePath("../StartBtn")
 focus_neighbour_right = NodePath("../QuitBtn")
 theme = SubResource( 6 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.843137, 0.560784, 0.00392157, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
-custom_fonts/font = SubResource( 11 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 text = "Menu"
 
 [node name="QuitBtn" type="Button" parent="CanvasLayer/Controller"]
@@ -157,16 +158,15 @@ focus_neighbour_top = NodePath("../MenuBtn")
 focus_neighbour_right = NodePath("../StartBtn")
 focus_neighbour_bottom = NodePath("../StartBtn")
 theme = SubResource( 6 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color_focus = Color( 0.992157, 0.768627, 0.227451, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.843137, 0.560784, 0.00392157, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
-custom_fonts/font = SubResource( 11 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
 custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.843137, 0.560784, 0.00392157, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,8 +181,8 @@ margin_left = -450.0
 margin_top = -123.0
 margin_right = 450.0
 margin_bottom = -23.0
-custom_colors/font_color = Color( 0.819608, 0, 0, 1 )
 custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.819608, 0, 0, 1 )
 text = "GAME OVER"
 
 [connection signal="pressed" from="CanvasLayer/Controller/StartBtn" to="." method="_on_StartBtn_pressed"]
