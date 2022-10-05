@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Levels/scene/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/Fall_zone.gd" type="Script" id=2]
 [ext_resource path="res://Levels/ParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Pacotes/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Terrain/paralax_background/tilesets_fase_1/terrenofaseum.png" type="Texture" id=5]
 [ext_resource path="res://Terrain/paralax_background/tilesets_fase_1/TileSet_details.png" type="Texture" id=7]
 
@@ -762,7 +763,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 281.971, 439.947 )
-collision_layer = 1
 collision_mask = 6
 ACCELERATION = 6.5
 
@@ -790,5 +790,7 @@ __meta__ = {
 shape = SubResource( 38 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [connection signal="body_entered" from="Fall_zone" to="Fall_zone" method="_on_Fall_zone_body_entered"]

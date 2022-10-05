@@ -36,6 +36,23 @@ export(int) var GRAVITY = 600
 export (int) var MAX_VELOCITY = 120
 var x:bool
 
+#sistema de vidas
+#--------------------------------------
+
+var max_health = 3
+var hurted = false
+
+var knockback_dir = 1
+var knockback_int = 300
+
+signal change_life(player_health)
+
+func _ready() -> void:
+	Global.set("player", self)
+	connect ("change_life", get_parent().get_node("HUD/HBoxContainer/Holder"), "on_change_life")
+	emit_signal("change_life", max_health)
+#--------------------------------------
+
 func _physics_process(delta: float) -> void:
 	add_to_group("player")
 	input_manager(delta)
@@ -80,6 +97,8 @@ func move(delta) -> void:
 	resultante = resultante.normalized()
 	if resultante.x != 0:
 		velocity.x = lerp(velocity.x, resultante.x * MAX_VELOCITY,ACCELERATION * delta )
+		knockback_dir = resultante.x
+
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION * delta)
 	#if Input.is_action_released():
@@ -165,5 +184,36 @@ func _on_Dialogo_Empurrar_body_exited(body: Node):
 	var dialogo_Empurrar = Dialogic.start("MecânicaEmpurrar")
 	if body.name == "Player":
 		get_parent().get_node("Dialogo_Empurrar/Caixa_Empurrar").queue_free()
+#----------------------------------------------------------------------------
 
 
+#FUNÇÕES PARA SISTEMA DE VIDAS
+func _on_Hitbox_body_entered(body: Node) -> void:
+	print ("Player colidiu")
+
+var FakeInterface = load("res://Levels/scene/GAME OVER/game_over.tscn").instance()
+
+func knockback():
+	velocity.x = -knockback_dir * knockback_int
+	velocity = move_and_slide(velocity)
+
+func _on_Hurtbox_body_entered(body: Node) -> void:
+	print ("Inimigo colidiu")
+	Global.player_health -= 1
+	hurted = true
+	emit_signal("change_life", Global.player_health)
+	knockback()
+	get_node("Hurtbox/Collision").set_deferred("disabled", true)
+	yield(get_tree().create_timer(0.5), "timeout")
+	get_node("Hurtbox/Collision").set_deferred("disabled", false)
+	hurted = false
+	gameover()
+
+func gameover() -> void:
+	if Global.player_health < 1:
+		Global.is_dead = true
+		get_tree().paused = !get_tree().paused
+		get_tree().current_scene.add_child(FakeInterface)
+
+
+#----------------------------------------------------------------------------

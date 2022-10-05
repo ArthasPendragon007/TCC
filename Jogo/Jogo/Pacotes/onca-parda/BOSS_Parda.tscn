@@ -1,0 +1,120 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Pacotes/onca-parda/Idle.tres" type="Animation" id=1]
+[ext_resource path="res://Pacotes/onca-parda/BOSS_Parda.gd" type="Script" id=2]
+[ext_resource path="res://sprite/Onça-Parda/Idle/boss onça-parda3.png" type="Texture" id=3]
+[ext_resource path="res://sprite/Onça-Parda/Idle/boss onça-parda2.png" type="Texture" id=4]
+[ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca aberta/boss onça-parda3.png" type="Texture" id=5]
+[ext_resource path="res://sprite/Onça-Parda/Idle/boss onça-parda1.png" type="Texture" id=6]
+[ext_resource path="res://sprite/Onça-Parda/Jump/boss onça-parda5.png" type="Texture" id=7]
+[ext_resource path="res://sprite/Onça-Parda/run/boss onça-parda10.png" type="Texture" id=8]
+[ext_resource path="res://sprite/Onça-Parda/Jump/boss onça-parda7.png" type="Texture" id=9]
+[ext_resource path="res://sprite/Onça-Parda/run/boss onça-parda11.png" type="Texture" id=10]
+[ext_resource path="res://sprite/Onça-Parda/run/boss onça-parda12.png" type="Texture" id=11]
+[ext_resource path="res://sprite/Onça-Parda/Jump/boss onça-parda6.png" type="Texture" id=12]
+[ext_resource path="res://sprite/Onça-Parda/run/boss onça-parda13.png" type="Texture" id=13]
+[ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca fechada/boss onça-parda1.png" type="Texture" id=14]
+[ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca fechada/boss onça-parda2.png" type="Texture" id=15]
+[ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca fechada/boss onça-parda3.png" type="Texture" id=16]
+[ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca aberta/boss onça-parda1.png" type="Texture" id=17]
+[ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca aberta/boss onça-parda2.png" type="Texture" id=18]
+[ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca fechada/boss onça-parda4.png" type="Texture" id=19]
+[ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca aberta/boss onça-parda4.png" type="Texture" id=20]
+[ext_resource path="res://Pacotes/onca-parda_Jump.tres" type="Animation" id=21]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Idle boca aberta ",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "Idle boca fechada",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 69, 39.2409 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Run"
+length = 0.6
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprites:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Run", "Run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprites:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 2, 1 ]
+}
+
+[node name="BOSS_Parda" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprites" type="AnimatedSprite" parent="."]
+position = Vector2( -4, -3.7946 )
+scale = Vector2( 1, 0.981733 )
+frames = SubResource( 2 )
+animation = "Jump"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/Idle = ExtResource( 1 )
+anims/Jump = ExtResource( 21 )
+anims/Run = SubResource( 3 )
+
+[node name="ray_wall" type="RayCast2D" parent="."]
+position = Vector2( -55.2065, 2.84731 )
+scale = Vector2( 1, 2 )
+enabled = true
+cast_to = Vector2( -16, 0 )
+collision_mask = 4
+
+[node name="ray_wall2" type="RayCast2D" parent="."]
+position = Vector2( 54.5768, 3.45273 )
+scale = Vector2( 1, 2 )
+enabled = true
+cast_to = Vector2( -16, 0 )
+collision_mask = 4

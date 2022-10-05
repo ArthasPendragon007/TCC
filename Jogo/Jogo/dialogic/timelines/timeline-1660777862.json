@@ -4,7 +4,7 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "[color=#A5EFAC]CLIQUE[/color] NO BOTÃO ESQUERDO DO MOUSE PARA INTERAGIR. \nPRESSIONE A SETA PARA [color=#A5EFAC]ESQUERDA[/color] OU PARA [color=#A5EFAC]DIREITA[/color] PARA SE MOVER."
+			"text": "[color=#A5EFAC]CLIQUE[/color] NO BOTÃO ESQUERDO DO MOUSE OU [color=#A5EFAC]ENTER[/color] PARA INTERAGIR.\nPRESSIONE A SETA PARA [color=#A5EFAC]ESQUERDA[/color] OU PARA [color=#A5EFAC]DIREITA[/color] PARA SE MOVER."
 		},
 		{
 			"event_id": "dialogic_024",

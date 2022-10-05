@@ -90,6 +90,10 @@ config/name="Re:Born"
 run/main_scene="res://Interface.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Pacotes/Global.gd"
+
 [display]
 
 window/size/test_width=1024
@@ -168,6 +172,8 @@ dialogic_default_action={
 2d_physics/layer_4="HiddenWorld"
 2d_physics/layer_5="Pushable"
 2d_physics/layer_6="Dialogue"
+2d_physics/layer_7="Hitbox"
+2d_physics/layer_8="Hurtbox"
 
 [physics]
 

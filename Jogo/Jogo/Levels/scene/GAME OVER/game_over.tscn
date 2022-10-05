@@ -17,12 +17,13 @@ func _ready() -> void:
 	StartBtn.call(\"grab_focus\")
 	if get_tree():
 		show()
-		
+
 func _on_StartBtn_pressed() -> void:
 
 	get_tree().paused = !get_tree().paused
 	get_tree().reload_current_scene()
-	
+	if Global.is_dead:
+		Global.player_health = 3
 func _on_QuitBtn_pressed() -> void:
 	
 	get_tree().quit()
@@ -111,7 +112,7 @@ __meta__ = {
 }
 
 [node name="StartBtn" type="Button" parent="CanvasLayer/Controller"]
-margin_right = 200.0
+margin_right = 175.0
 margin_bottom = 50.0
 focus_neighbour_left = NodePath("../QuitBtn")
 focus_neighbour_right = NodePath("../MenuBtn")
@@ -128,11 +129,11 @@ custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 custom_constants/hseparation = 0
 toggle_mode = true
 action_mode = 0
-text = "Reniciar"
+text = "Restart"
 
 [node name="MenuBtn" type="Button" parent="CanvasLayer/Controller"]
-margin_left = 412.0
-margin_right = 512.0
+margin_left = 387.0
+margin_right = 487.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( -1180.32, -182.84 )
 focus_neighbour_left = NodePath("../StartBtn")
@@ -150,8 +151,8 @@ custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
 text = "Menu"
 
 [node name="QuitBtn" type="Button" parent="CanvasLayer/Controller"]
-margin_left = 724.0
-margin_right = 824.0
+margin_left = 699.0
+margin_right = 799.0
 margin_bottom = 50.0
 focus_neighbour_left = NodePath("../MenuBtn")
 focus_neighbour_top = NodePath("../MenuBtn")

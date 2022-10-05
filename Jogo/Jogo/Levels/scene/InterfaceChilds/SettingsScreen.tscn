@@ -76,17 +76,27 @@ custom_fonts/font = SubResource( 1 )
 text = "          Settings:
 Music Volume:        << 100 >>
 Sound Efecct Volume:  << 100 >>
-Toggle FullScreen:      |  |
-Toggle Borderless:      |  |"
+Toggle FullScreen:      | X |
+Toggle Borderless:      | X |"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Return" type="Button" parent="."]
-margin_left = 432.5
-margin_top = 550.0
-margin_right = 591.5
-margin_bottom = 600.0
+[node name="Controller" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -79.5
+margin_top = -50.0
+margin_right = 79.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Return" type="Button" parent="Controller"]
+margin_right = 159.0
+margin_bottom = 50.0
 rect_pivot_offset = Vector2( -1180.32, -182.84 )
 theme = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
@@ -103,59 +113,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Controller" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 237.0
-margin_top = -304.0
-margin_right = 375.0
-margin_bottom = -200.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Fullscreen" type="Button" parent="Controller"]
-margin_right = 138.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( -683.603, -97.2557 )
-theme = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.890196, 0.780392, 0.152941, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
-text = "X"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Toggle Borderless" type="Button" parent="Controller"]
-margin_top = 54.0
-margin_right = 138.0
-margin_bottom = 104.0
-rect_pivot_offset = Vector2( -683.603, -97.2557 )
-theme = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_hover = Color( 0.890196, 0.780392, 0.152941, 1 )
-custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
-text = "X"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="Return" to="." method="_on_Return_pressed"]
-[connection signal="pressed" from="Controller/Fullscreen" to="." method="_on_Fullscreen_pressed"]
-[connection signal="pressed" from="Controller/Toggle Borderless" to="." method="_on_Toggle_Borderless_pressed"]
+[connection signal="pressed" from="Controller/Return" to="." method="_on_Return_pressed"]

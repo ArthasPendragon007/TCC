@@ -7,6 +7,7 @@ script/source = "extends Control
 
 onready var controller = $CanvasLayer/Controller
 onready var StartBtn = $CanvasLayer/Controller/StartBtn
+onready var startscreen := get_node(\".\")
 var x:int
 var  troca_cena = preload(\"res://Script/player/ESC/ControlsScreenESC.gd\")
 
@@ -22,7 +23,7 @@ func _ready() -> void:
 func _on_StartBtn_pressed() -> void:
 
 	get_tree().paused = !get_tree().paused
-	
+	startscreen.queue_free()
 	if is_in_group(\"ESC\"):
 		queue_free()
 		
@@ -133,6 +134,9 @@ margin_top = -321.0
 margin_right = 3201.0
 margin_bottom = 909.0
 color = Color( 0, 0, 0, 0.294118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

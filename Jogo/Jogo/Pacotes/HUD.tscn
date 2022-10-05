@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprite/heart1.png" type="Texture" id=1]
+[ext_resource path="res://Pacotes/Life_Holder.gd" type="Script" id=2]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -549.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Holder" type="Control" parent="HBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lifes" type="TextureRect" parent="HBoxContainer/Holder"]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 52.0
+margin_bottom = 44.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
