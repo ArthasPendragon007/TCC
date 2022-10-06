@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 func push(delta) -> void:
 	
 	if pushR.is_colliding() or pushL.is_colliding():
-		animate.play("run")
+		animate.play("push")
 		matriz[0] = true
 	if pushR.is_colliding():
 		var object = pushR.get_collider()

@@ -22,7 +22,7 @@
 [ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca aberta/boss onça-parda4.png" type="Texture" id=20]
 [ext_resource path="res://Pacotes/onca-parda_Jump.tres" type="Animation" id=21]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 20 ) ],
 "loop": true,
@@ -34,9 +34,9 @@ animations = [ {
 "name": "Idle boca fechada",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ) ],
@@ -44,13 +44,13 @@ animations = [ {
 "name": "Run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 20 ) ],
 "loop": true,
-"name": "Jump",
+"name": "Idle",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 69, 39.2409 )
 
 [sub_resource type="Animation" id=3]
@@ -94,11 +94,11 @@ __meta__ = {
 [node name="sprites" type="AnimatedSprite" parent="."]
 position = Vector2( -4, -3.7946 )
 scale = Vector2( 1, 0.981733 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Jump"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/Idle = ExtResource( 1 )
@@ -118,3 +118,5 @@ scale = Vector2( 1, 2 )
 enabled = true
 cast_to = Vector2( -16, 0 )
 collision_mask = 4
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
