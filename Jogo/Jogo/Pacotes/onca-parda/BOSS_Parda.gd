@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 200
+export var speed = 300
 var velocity = Vector2.ZERO
 var gravity = 600
 var move_direction = -1
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		move_direction *= -1
 		$ray_wall2.scale.x *= -1
 		$ray_wall.scale.x *= -1
-	if $ray_wall.is_colliding():
+	if $ray_wall.is_colliding() or $ray_wall2.is_colliding():
 		$anim.play("idle")
 		condic = false
 		timer.wait_time = 3
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		
 		timer.connect("timeout", self, "_on_timer_timeout")
 		timer.start()
-	if !$ray_wall.is_colliding():
+	if !$ray_wall.is_colliding() or !$ray_wall2.is_colliding():
 		if abs(velocity.x) > 15:
 			anim.play("Run")
 		elif abs(velocity.x) < 15:
@@ -56,13 +56,13 @@ func _physics_process(delta: float) -> void:
 # TESTES PARA CASO HAJA ANIMAÇÃO DE IDLE E RUN
 
 	
-
-func _on_anim_animation_finished(anim_name: String) -> void:
-	if sprite.name == "idle":
-		sprite.flip_h != sprite.flip_h
-		$ray_wall.scale.x *= -1
-		move_direction *= -1
-		
+#
+#func _on_anim_animation_finished(anim_name: String) -> void:
+#	if sprite.name == "idle":
+#		sprite.flip_h != sprite.flip_h
+#		$ray_wall.scale.x *= -1
+#		move_direction *= -1
+##
 func _on_timer_timeout() -> void:
 #		anim.play("run")
 	condic = true
