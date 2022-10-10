@@ -142,6 +142,7 @@ func _unhandled_input(event) -> void:
 			camera.current = false
 			camera.zoom.x = 1
 			camera.zoom.y = 1
+
 	else: 
 		camera.zoom.x = 0.5
 		camera.zoom.y = 0.5
@@ -204,7 +205,7 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 	emit_signal("change_life", Global.player_health)
 	knockback()
 	get_node("Hurtbox/Collision").set_deferred("disabled", true)
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 	get_node("Hurtbox/Collision").set_deferred("disabled", false)
 	hurted = false
 	gameover()
@@ -217,3 +218,7 @@ func gameover() -> void:
 
 
 #----------------------------------------------------------------------------
+
+
+func _on_Trigger_PlayerEntered():
+	camera.current = false

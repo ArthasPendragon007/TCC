@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Pacotes/caixa-empurravel/CaixaEmpurravel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/scene/Player/Player.tscn" type="PackedScene" id=2]
@@ -7,8 +7,12 @@
 [ext_resource path="res://Levels/ParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Pacotes/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Terrain/paralax_background/tilesets_fase_1/terrenofaseum.png" type="Texture" id=7]
+[ext_resource path="res://Terrain/Lobeira.png" type="Texture" id=8]
 [ext_resource path="res://Terrain/paralax_background/tilesets_fase_1/TileSet_details.png" type="Texture" id=9]
 [ext_resource path="res://Pacotes/Transition/Transition_In.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 56.634, 57.9586 )
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 12.7117, 16, 0.767036, 15.8409, 0.767036, 0.0940933, 13.2725, 0.0940933 )
@@ -765,10 +769,22 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 2.83545, 74.2115 )
 
-[sub_resource type="RectangleShape2D" id=40]
-extents = Vector2( 49.1147, 39.0512 )
-
 [node name="Segundo_Level" type="Node2D"]
+
+[node name="Chegada_fase12" type="Area2D" parent="."]
+position = Vector2( 1005.13, 243.857 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+path = "res://Levels/Level_1/fase_1.3/Fase_3.tscn"
+
+[node name="SpriteChegada" type="Sprite" parent="Chegada_fase12"]
+texture = ExtResource( 8 )
+
+[node name="Teste" type="CollisionShape2D" parent="Chegada_fase12"]
+position = Vector2( 0, 64 )
+shape = SubResource( 40 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 281.971, 439.947 )
@@ -811,24 +827,13 @@ __meta__ = {
 [node name="Caixa_Empurrar" type="CollisionShape2D" parent="Dialogo_Empurrar"]
 shape = SubResource( 39 )
 
-[node name="Chegada_fase12" type="Area2D" parent="."]
-position = Vector2( 984.975, 323.232 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-path = "res://Levels/Level_1/fase_1.3/Fase_3.tscn"
-
-[node name="Teste" type="CollisionShape2D" parent="Chegada_fase12"]
-shape = SubResource( 40 )
-
 [node name="Transition_In" parent="." instance=ExtResource( 12 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
+[connection signal="body_entered" from="Chegada_fase12" to="Chegada_fase12" method="_on_Chegada_fase12_body_entered"]
 [connection signal="body_entered" from="Fall_zone" to="Fall_zone" method="_on_Fall_zone_body_entered"]
 [connection signal="body_entered" from="Dialogo_Empurrar" to="Player" method="_on_Dialogo_Empurrar_body_entered"]
 [connection signal="body_exited" from="Dialogo_Empurrar" to="Player" method="_on_Dialogo_Empurrar_body_exited"]
-[connection signal="body_entered" from="Chegada_fase12" to="Chegada_fase12" method="_on_Chegada_fase12_body_entered"]

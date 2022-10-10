@@ -1,5 +1,12 @@
 extends KinematicBody2D
 
+signal BossDead
+
+func _ready():
+
+	set_physics_process(false)
+
+export var health = 10
 export var speed = 300
 var velocity = Vector2.ZERO
 var gravity = 600
@@ -9,11 +16,15 @@ onready var anim = get_node("anim")
 onready var hurtbox_col = get_node("Hurtbox/Collision")
 var timer := Timer.new()
 var condic = true
-func _ready():
-	add_child(timer)
+
+#func _ready():
+#	add_child(timer)
+
 
 func _physics_process(delta: float) -> void:
-#	condic = false
+
+
+
 	if condic:
 		velocity.x = speed * move_direction
 	velocity.y += gravity * delta
@@ -63,6 +74,30 @@ func _physics_process(delta: float) -> void:
 #		$ray_wall.scale.x *= -1
 #		move_direction *= -1
 ##
+
 func _on_timer_timeout() -> void:
 #		anim.play("run")
 	condic = true
+
+
+
+func _on_ArenaDoor2_DoorClosed():
+	set_physics_process(true)
+	add_child(timer)
+
+
+func _on_Hitbox_body_entered(body):
+#	hitted = true
+	health -= 1
+	body.velocity.y -= 400
+#	yield(get_tree().create_timer(0.2), "timeout")
+#	hitted = false
+	print(health)
+	if health < 1:
+		emit_signal("BossDead")
+		queue_free()
+		get_node("Hitbox/Collision").set_deferred("disabled", true)
+
+
+func _on_ArenaDoor_DoorClosed():
+	pass # Replace with function body.
