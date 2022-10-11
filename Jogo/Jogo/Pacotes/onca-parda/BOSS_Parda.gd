@@ -66,14 +66,19 @@ func _physics_process(delta: float) -> void:
 				sprite.frame = 2
 # TESTES PARA CASO HAJA ANIMAÇÃO DE IDLE E RUN
 
-	
 #
 #func _on_anim_animation_finished(anim_name: String) -> void:
-#	if sprite.name == "idle":
-#		sprite.flip_h != sprite.flip_h
-#		$ray_wall.scale.x *= -1
-#		move_direction *= -1
-##
+#	if !$ray_wall.is_colliding() or !$ray_wall2.is_colliding():
+#		if abs(velocity.x) > 15:
+#			anim.play("Run")
+#		elif abs(velocity.x) < 15:
+#			anim.play("Idle")
+#		elif !is_on_floor():
+#			anim.play("Jump")
+#			sprite.frame = 2
+#			if abs(velocity.y) > 10:
+#				sprite.frame = 2
+###
 
 func _on_timer_timeout() -> void:
 #		anim.play("run")
@@ -89,6 +94,11 @@ func _on_ArenaDoor2_DoorClosed():
 func _on_Hitbox_body_entered(body):
 #	hitted = true
 	health -= 1
+	for n in 4:
+		sprite.modulate.a = 200
+#		yield(get_tree(), "idle_frame")
+		sprite.modulate.a = 1
+#		yield(get_tree(), "idle_frame")
 	body.velocity.y -= 400
 #	yield(get_tree().create_timer(0.2), "timeout")
 #	hitted = false
@@ -97,7 +107,7 @@ func _on_Hitbox_body_entered(body):
 		emit_signal("BossDead")
 		queue_free()
 		get_node("Hitbox/Collision").set_deferred("disabled", true)
-
+#	return true
 
 func _on_ArenaDoor_DoorClosed():
 	pass # Replace with function body.

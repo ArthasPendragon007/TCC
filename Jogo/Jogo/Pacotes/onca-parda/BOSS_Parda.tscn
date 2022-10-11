@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Pacotes/onca-parda/Idle.tres" type="Animation" id=1]
 [ext_resource path="res://Pacotes/onca-parda/BOSS_Parda.gd" type="Script" id=2]
@@ -35,9 +35,9 @@ animations = [ {
 "name": "Run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 19 ) ],
 "loop": true,
-"name": "Idle boca aberta ",
+"name": "Idle boca fechada",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 9 ) ],
@@ -45,9 +45,9 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 20 ) ],
 "loop": true,
-"name": "Idle boca fechada",
+"name": "Idle boca aberta ",
 "speed": 5.0
 } ]
 
@@ -55,7 +55,36 @@ animations = [ {
 extents = Vector2( 69, 39.2409 )
 
 [sub_resource type="Animation" id=3]
-resource_name = "Run"
+resource_name = "Dano"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprites:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.392292, 0.153893 ),
+"update": 0,
+"values": [ Color( 0.588235, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ null, null ],
+"method": "_on_Hitbox_body_entered"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 0.6
 loop = true
 step = 0.2
@@ -84,6 +113,21 @@ tracks/1/keys = {
 "values": [ 1, 0, 2, 1 ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "sem dano"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprites:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="BOSS_Parda" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -96,15 +140,17 @@ __meta__ = {
 position = Vector2( -4, -3.7946 )
 scale = Vector2( 1, 0.981733 )
 frames = SubResource( 1 )
-animation = "Jump"
+animation = "Idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
+anims/Dano = SubResource( 3 )
 anims/Idle = ExtResource( 1 )
 anims/Jump = ExtResource( 21 )
-anims/Run = SubResource( 3 )
+anims/Run = SubResource( 4 )
+"anims/sem dano" = SubResource( 5 )
 
 [node name="ray_wall" type="RayCast2D" parent="."]
 position = Vector2( -59.2065, 2.84731 )
