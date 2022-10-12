@@ -820,7 +820,8 @@ __meta__ = {
 }
 
 [node name="Chegada_fase1" type="Area2D" parent="."]
-position = Vector2( 1209.72, 239.466 )
+modulate = Color( 0.513726, 0.513726, 0.513726, 1 )
+position = Vector2( 1185.16, 242.221 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true

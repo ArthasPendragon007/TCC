@@ -69,7 +69,7 @@ motion_mirroring = Vector2( 576, 0 )
 
 [node name="Sprite" type="Sprite" parent="fundo_cima"]
 modulate = Color( 0.68, 0.68, 0.68, 1 )
-position = Vector2( 239.231, 300.415 )
+position = Vector2( 239.231, 274.415 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 
@@ -80,7 +80,7 @@ motion_mirroring = Vector2( 576, 0 )
 [node name="Sprite" type="Sprite" parent="fundo_baixo"]
 modulate = Color( 0.670588, 0.670588, 0.670588, 1 )
 light_mask = 8
-position = Vector2( -46.0147, 141.554 )
+position = Vector2( -46.0147, 127.14 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 centered = false
@@ -100,7 +100,7 @@ motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 576, 0 )
 
 [node name="Sprite" type="Sprite" parent="background_arvores"]
-position = Vector2( -75, 128 )
+position = Vector2( -75, 123 )
 scale = Vector2( 2.167, 2 )
 texture = ExtResource( 5 )
 centered = false
