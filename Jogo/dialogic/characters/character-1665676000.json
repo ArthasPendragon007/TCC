@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "Lobo-guará",
+	"display_name_bool": true,
+	"id": "character-1665676000.json",
+	"mirror_portraits": false,
+	"name": "Lobo-guará",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 100,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://sprite/cu.png"
+		}
+	],
+	"scale": 100,
+	"theme": "default-theme.cfg"
+}
