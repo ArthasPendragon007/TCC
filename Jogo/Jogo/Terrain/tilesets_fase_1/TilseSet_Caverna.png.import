@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2 - Hills.png-7dad1ab3fc827d8c0737d2a4a50399b7.stex"
+path="res://.import/TilseSet_Caverna.png-a876e72eb035766d8b8be8b6ff317097.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Terrain/paralax_background/2 - Hills.png"
-dest_files=[ "res://.import/2 - Hills.png-7dad1ab3fc827d8c0737d2a4a50399b7.stex" ]
+source_file="res://Terrain/tilesets_fase_1/TilseSet_Caverna.png"
+dest_files=[ "res://.import/TilseSet_Caverna.png-a876e72eb035766d8b8be8b6ff317097.stex" ]
 
 [params]
 
@@ -28,8 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
