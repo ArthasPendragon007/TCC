@@ -1,27 +1,44 @@
 {
 	"events": [
 		{
-			"character": "",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "POOOOOOOOOOOOOOOOOOOOOOOOOOOOOORRA."
-		},
-		{
-			"event_id": "dialogic_022",
-			"transition_duration": 0.1
-		},
-		{
 			"event_id": "dialogic_024",
 			"set_theme": "default-theme.cfg"
 		},
 		{
-			"emit_signal": "dialogic_signal == tween_completed",
-			"event_id": "dialogic_040"
+			"background": "res://sprite/historyhigh.png",
+			"event_id": "dialogic_021",
+			"fade_duration": 1
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Por causa do desmatamento e atividades humanas contra a fauna, o Lobo-Guará acaba por fugir do seu habitat natural."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Além de encontrar perigos fora do seu território, assim podendo ir na cidade, fazendas ou ir na estrada e acabar por ser atropelado."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Você é um desses e terá que fugir e sobreviver nessas adversidades."
+		},
+		{
+			"change_scene": "res://Levels/Level_1/fase_1/Fase_1.tscn",
+			"event_id": "dialogic_041"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.4
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.4.4",
 		"file": "timeline-1662743532.json",
-		"name": "TelaFinal"
+		"name": "Telatestes"
 	}
 }

@@ -18,7 +18,7 @@ func _ready() -> void:
 #	get_node(\"Controller\").connect(\"pressed\",self,\"_on_Controller_pressed\")
 #	$Controller/StartBtn.grab_focus()
 func _on_StartBtn_pressed() -> void:
-	get_tree().change_scene(\"res://Levels/Level_1/fase_1/Fase_1.tscn\")
+	get_tree().change_scene(\"res://scene/historia.tscn\")
 	Global.player_health = 3
 func _on_ControlsBtn_pressed() -> void:
 	var ControlScreen = preload(\"res://Levels/scene/InterfaceChilds/Controls.tscn\").instance()
@@ -211,6 +211,9 @@ margin_right = 164.5
 margin_bottom = 115.0
 custom_fonts/font = SubResource( 12 )
 text = "Re:Born"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="focus_exited" from="." to="." method="_on_startscreen_focus_exited"]
 [connection signal="hide" from="CanvasLayer/Controller" to="." method="_on_Controller_hide"]

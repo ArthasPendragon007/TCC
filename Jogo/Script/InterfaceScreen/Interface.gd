@@ -13,7 +13,7 @@ func _ready() -> void:
 	get_node("Controller").connect("pressed",self,"_on_Controller_pressed")
 	$Controller/StartBtn.grab_focus()
 func _on_StartBtn_pressed() -> void:
-	get_tree().change_scene("res://Levels/scene/Fase_1.tscn")
+	get_tree().change_scene("res://scene/historia.tscn")
 func _on_ControlsBtn_pressed() -> void:
 	var ControlScreen = preload("res://Levels/scene/InterfaceChilds/Controls.tscn").instance()
 	get_tree().current_scene.add_child (ControlScreen)

@@ -781,7 +781,6 @@ ACCELERATION = 6.5
 position = Vector2( 35.1649, 254.105 )
 tile_set = SubResource( 37 )
 cell_size = Vector2( 16, 16 )
-show_collision = true
 collision_layer = 4
 collision_mask = 3
 format = 1

@@ -13,3 +13,6 @@ func _on_Chegada_fase1_body_entered(body: Node) -> void:
 
 func _on__body_entered(body):
 	pass # Replace with function body.
+	
+func _on_historia_historia():
+	changer.change_scene(path)

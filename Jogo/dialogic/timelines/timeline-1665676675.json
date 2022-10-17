@@ -2,10 +2,10 @@
 	"events": [
 		{
 			"event_id": "dialogic_024",
-			"set_theme": "default-theme.cfg"
+			"set_theme": "theme-1665702906.cfg"
 		},
 		{
-			"animation": "[Default]",
+			"animation": "instant_in.gd",
 			"animation_length": 0,
 			"change_mirror_portrait": false,
 			"change_z_index": false,
@@ -17,12 +17,12 @@
 			"position": {
 				"0": false,
 				"1": false,
-				"2": false,
+				"2": true,
 				"3": false,
 				"4": false
 			},
 			"type": 0,
-			"z_index": 0
+			"z_index": 1
 		},
 		{
 			"character": "character-1665676000.json",

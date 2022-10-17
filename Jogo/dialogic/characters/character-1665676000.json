@@ -4,18 +4,18 @@
 	"display_name": "Lobo-guará",
 	"display_name_bool": true,
 	"id": "character-1665676000.json",
-	"mirror_portraits": false,
+	"mirror_portraits": true,
 	"name": "Lobo-guará",
 	"nickname": "",
 	"nickname_bool": false,
-	"offset_x": 0,
-	"offset_y": 100,
+	"offset_x": 285,
+	"offset_y": -55,
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://sprite/cu.png"
+			"path": "res://sprite/so_a_cabeca (1).png"
 		}
 	],
-	"scale": 100,
-	"theme": "default-theme.cfg"
+	"scale": 40,
+	"theme": ""
 }

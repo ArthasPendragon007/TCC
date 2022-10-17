@@ -6,7 +6,7 @@ func _ready():
 
 	set_physics_process(false)
 
-export var health = 10
+export var health = 5
 export var speed = 300
 var velocity = Vector2.ZERO
 var gravity = 600

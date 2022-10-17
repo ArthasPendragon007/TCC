@@ -767,6 +767,10 @@ extents = Vector2( 2.83545, 74.2115 )
 
 [node name="Segundo_Level" type="Node2D"]
 
+[node name="Chegada_fase1" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1004.95, 241.847 )
+path = "res://Levels/Level_1/fase_1.3/Fase_3.tscn"
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 281.971, 439.947 )
 collision_mask = 6
@@ -778,7 +782,6 @@ ACCELERATION = 6.5
 position = Vector2( 35.1649, 254.105 )
 tile_set = SubResource( 37 )
 cell_size = Vector2( 16, 16 )
-show_collision = true
 collision_layer = 4
 collision_mask = 3
 format = 1
@@ -814,10 +817,6 @@ shape = SubResource( 39 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
-
-[node name="Chegada_fase1" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1004.95, 241.847 )
-path = "res://Levels/Level_1/fase_1.3/Fase_3.tscn"
 
 [connection signal="body_entered" from="Fall_zone" to="Fall_zone" method="_on_Fall_zone_body_entered"]
 [connection signal="body_entered" from="Dialogo_Empurrar" to="Player" method="_on_Dialogo_Empurrar_body_entered"]
