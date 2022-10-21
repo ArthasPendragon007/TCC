@@ -124,9 +124,6 @@ func animated() -> void:
 			animate.play("run") # pegue o $animate e rode a ani,ação chamada "idle"
 		if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"): # se apertar o botão "ui_right" ou "ui_left" faça isso
 			matriz[0] = true  # ativa a propriedade do animate chamada 'playing'
-		elif Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left"): # se parar de apertar o botao "ui_right" ou "ui_left" faça isso
-#			matriz[0] = false
-			pass
 	if !is_on_floor() and abs(velocity.y) > 10:
 		animate.play("jump")
 		if animate.frame == 2:
@@ -142,18 +139,11 @@ func _unhandled_input(event) -> void:
 			camera.current = true
 			camera.zoom.x = 0.5
 			camera.zoom.y = 0.5
-#Não é necessário?? lol????
-#	else: 
-#		camera.zoom.x = 0.5
-#		camera.zoom.y = 0.5
-#		camera.current = true
 
 func _toggled(button_pressed):
 	get_tree().paused = button_pressed
 	# Pause or unpause the SceneTree based on whether the button is
 	# toggled on or off.
-	
-
 #Funções para os dialogos
 func _on_Dialogo_AD_body_entered(body: Node):
 	if body.name == "Player":
@@ -204,8 +194,6 @@ func _on_aviso_body_exited(body):
 func _on_Hitbox_body_entered(body: Node) -> void:
 	print ("Player colidiu")
 
-var FakeInterface = load("res://Levels/scene/GAME OVER/game_over.tscn").instance()
-
 func knockback():
 	velocity.x = -knockback_dir * knockback_int
 	velocity = move_and_slide(velocity)
@@ -223,6 +211,7 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 	gameover()
 
 func gameover() -> void:
+	var FakeInterface = load("res://Levels/scene/GAME OVER/game_over.tscn").instance()
 	if Global.player_health < 1:
 		Global.is_dead = true
 		get_tree().paused = !get_tree().paused

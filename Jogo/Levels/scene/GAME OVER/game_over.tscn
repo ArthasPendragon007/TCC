@@ -91,7 +91,10 @@ margin_left = -493.0
 margin_top = -321.0
 margin_right = 3799.0
 margin_bottom = 1303.0
-color = Color( 0, 0, 0, 0.294118 )
+color = Color( 0, 0, 0, 0.396078 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

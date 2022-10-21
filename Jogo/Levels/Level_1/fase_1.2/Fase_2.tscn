@@ -766,6 +766,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 extents = Vector2( 2.83545, 74.2115 )
 
 [node name="Segundo_Level" type="Node2D"]
+position = Vector2( 3, 1 )
 
 [node name="Chegada_fase1" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1004.95, 241.847 )
