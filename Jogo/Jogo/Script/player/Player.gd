@@ -92,12 +92,20 @@ func animate_manager() -> void:
 
 func move(delta) -> void:
 	var resultante = Vector2.ZERO
+	var resultante_um = Vector2.ZERO
 	# Função criada o movumento no eixo X
 	resultante.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left") 
 	resultante = resultante.normalized()
+	#botões "ASDW"
+	resultante_um.x = Input.get_action_strength("D") - Input.get_action_strength("A")
+	resultante_um = resultante_um.normalized()
+	
 	if resultante.x != 0:
 		velocity.x = lerp(velocity.x, resultante.x * MAX_VELOCITY,ACCELERATION * delta )
 		knockback_dir = resultante.x
+	elif resultante_um.x != 0:
+		velocity.x = lerp(velocity.x, resultante_um.x * MAX_VELOCITY,ACCELERATION * delta )
+		knockback_dir = resultante_um.x
 
 	else:
 		velocity.x = lerp(velocity.x, 0, FRICTION * delta)
