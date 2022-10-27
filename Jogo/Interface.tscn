@@ -117,7 +117,8 @@ margin_right = 163.0
 margin_bottom = 154.0
 custom_constants/separation = -6
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="StartBtn" type="Button" parent="CanvasLayer/Controller"]
