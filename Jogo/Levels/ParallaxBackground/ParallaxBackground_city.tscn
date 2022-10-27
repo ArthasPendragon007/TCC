@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sprite/city/apart_city.png" type="Texture" id=1]
+[ext_resource path="res://sprite/city/sol.png" type="Texture" id=2]
+[ext_resource path="res://sprite/city/Rio.png" type="Texture" id=3]
+[ext_resource path="res://sprite/city/ceu_city.png" type="Texture" id=4]
+[ext_resource path="res://sprite/city/nuvens.png" type="Texture" id=7]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec2 Direction = vec2(1.0,0.0);
+uniform float Speed = 0.01f;
+
+void fragment ()
+{
+	COLOR = texture(TEXTURE, UV + (Direction * TIME * Speed));
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+render_priority = 1
+shader = SubResource( 1 )
+shader_param/Direction = Vector2( 1, 0 )
+shader_param/Speed = 0.0
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ceu" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 576, 0 )
+
+[node name="Sprite" type="Sprite" parent="ceu"]
+position = Vector2( -5, -4.58579 )
+scale = Vector2( 2, 3.84988 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="sol" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.7, 1 )
+motion_mirroring = Vector2( 576, 0 )
+
+[node name="Sprite" type="Sprite" parent="sol"]
+light_mask = 8
+position = Vector2( -161.964, -29.1506 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="apart" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.6, 0.8 )
+motion_mirroring = Vector2( 576, 0 )
+
+[node name="arvoreSprite" type="Sprite" parent="apart"]
+light_mask = 2
+position = Vector2( -30.5017, 146 )
+scale = Vector2( 2, 1.5 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Nuvens" type="ParallaxLayer" parent="."]
+position = Vector2( 0, 1 )
+motion_mirroring = Vector2( 575, 0 )
+
+[node name="Sprite" type="Sprite" parent="Nuvens"]
+material = SubResource( 2 )
+position = Vector2( 286.375, 153.775 )
+scale = Vector2( 1.99625, 1.73253 )
+texture = ExtResource( 7 )
+
+[node name="rio" type="ParallaxLayer" parent="."]
+position = Vector2( 1, 0 )
+motion_mirroring = Vector2( 576, 0 )
+
+[node name="Sprite" type="Sprite" parent="rio"]
+position = Vector2( -26.9695, 148.322 )
+scale = Vector2( 3.39289, 5.88722 )
+texture = ExtResource( 3 )
+centered = false

@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "Lobo-guará",
+	"display_name_bool": true,
+	"id": "character-1665676000.json",
+	"mirror_portraits": true,
+	"name": "Lobo-guará",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 285,
+	"offset_y": -55,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://sprite/so_a_cabeca (1).png"
+		}
+	],
+	"scale": 40,
+	"theme": ""
+}
