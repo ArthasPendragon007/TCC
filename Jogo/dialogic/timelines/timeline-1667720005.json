@@ -1,0 +1,43 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1665702906.cfg"
+		},
+		{
+			"animation": "instant_in.gd",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1667720078.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 1
+		},
+		{
+			"character": "character-1667720078.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Essa é a [color=#A5EFAC]LOBEIRA[/color], seu nome é uma menção direta ao lobo-guará, dada sua vital importância na dieta deste animal.\nO objetivo do jogo é encontra-la, ela sempre estara para [wave amp=25 freq=2][color=#A5EFAC]DIREITA[/color][/wave] no fim do mapa."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.5
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.4",
+		"file": "timeline-1667720005.json",
+		"name": "Aviso_lobeira"
+	}
+}

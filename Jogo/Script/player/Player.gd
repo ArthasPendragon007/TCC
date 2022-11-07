@@ -34,6 +34,7 @@ export(float, 0.0, 10.0) var ACCELERATION = 5
 export(float, 0.0, 10.0) var FRICTION = 6
 export(int) var GRAVITY = 600
 export (int) var MAX_VELOCITY = 120
+var move:int
 var x:bool
 
 #sistema de vidas
@@ -73,7 +74,7 @@ func push(delta) -> void:
 		var object = pushL.get_collider()
 		object.move_and_slide(Vector2(-17,0) * 300 * delta)
 		
-	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
+	if move:
 		if abs (velocity.x) > 16:
 			pushL.enabled = true
 			pushR.enabled = true
@@ -99,7 +100,7 @@ func move(delta) -> void:
 	#botões "ASDW"
 	resultante_um.x = Input.get_action_strength("D") - Input.get_action_strength("A")
 	resultante_um = resultante_um.normalized()
-	
+	move = resultante.x*resultante.x + resultante_um.x*resultante_um.x
 	if resultante.x != 0:
 		velocity.x = lerp(velocity.x, resultante.x * MAX_VELOCITY,ACCELERATION * delta )
 		knockback_dir = resultante.x
@@ -195,6 +196,16 @@ func _on_aviso_body_exited(body):
 	var pipi = Dialogic.start("Aviso_boss")
 	if body.name == "Player":
 		get_parent().get_node("aviso/col").queue_free()
+func _on_Dialogo_Lobeira_body_entered(body):
+	pass # Replace with function body.
+	if body.name == "Player":
+		var lobeira = Dialogic.start("Aviso_lobeira")
+		add_child((lobeira))
+
+func _on_Dialogo_Lobeira_body_exited(body):
+	if body.name == "Player":
+		get_parent().get_node("Dialogo_Lobeira/col").queue_free()
+
 #----------------------------------------------------------------------------
 
 
@@ -246,5 +257,7 @@ func _on_Trigger_PlayerEntered():
 
 func _on_BOSS_Parda_BossDead():
 	camera.current = true
+
+
 
 

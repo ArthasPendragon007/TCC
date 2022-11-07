@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1667720078.json",
+	"mirror_portraits": true,
+	"name": "Lobeira",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 285,
+	"offset_y": -55,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://sprite/so_a_lobeira..png"
+		}
+	],
+	"scale": 40,
+	"theme": ""
+}
