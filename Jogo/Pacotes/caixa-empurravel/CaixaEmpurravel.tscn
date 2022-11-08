@@ -4,7 +4,7 @@
 [ext_resource path="res://Pacotes/caixa-empurravel/CaixaEmpurravel.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+extents = Vector2( 7.96346, 7.17943 )
 
 [node name="CaixaEmpurravel" type="KinematicBody2D"]
 collision_layer = 20
@@ -19,4 +19,5 @@ region_enabled = true
 region_rect = Rect2( -2.27188, 0, 52.2719, 49 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0.111362, 0.111362 )
 shape = SubResource( 1 )

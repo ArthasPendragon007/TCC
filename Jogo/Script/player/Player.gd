@@ -115,13 +115,15 @@ func move(delta) -> void:
 func jump(delta) -> void:
 	# Função criada para o pulo
 	var jump = Input.is_action_pressed("ui_up")
+	var jumpW = Input.is_action_pressed("W")
 	var jump_stop = Input.is_action_just_released("ui_up")
+	var jumpW_stop = Input.is_action_just_released("W")
 	
 	yield(get_tree().create_timer(0.025), "timeout")
 	if is_on_floor(): 
-		if jump:
+		if jump or jumpW:
 			velocity.y = JUMP_FORCE
-	elif jump_stop and velocity.y < 0:
+	elif jump_stop and jumpW and velocity.y < 0:
 		velocity.y = lerp(velocity.y, 0, 0.3)
 func animated() -> void:
 	
