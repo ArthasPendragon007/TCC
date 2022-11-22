@@ -68,16 +68,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -486.769
-margin_top = -133.197
-margin_right = 463.231
-margin_bottom = 51.8033
+margin_left = -543.765
+margin_top = -147.877
+margin_right = 552.235
+margin_bottom = 84.1226
 custom_fonts/font = SubResource( 1 )
 custom_constants/shadow_offset_x = 0
 text = "Controles:
-SETA PARA ESQUERDA - Andar esquerda
-SETA PARA DIREITA - Andar direita
-SETA PARA CIMA - Pular"
+SETA ESQUERDA ou A - Andar esquerda
+SETA DIREITA ou D - Andar direita
+SETA PARA CIMA ou W - Pular
+ENTER ou ESPAÇO - Interagir"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

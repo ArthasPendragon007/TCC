@@ -99,6 +99,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Pacotes/Global.gd"
+MusicController="*res://Music/Autoload/MusicController.tscn"
 
 [display]
 

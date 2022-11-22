@@ -4,4 +4,5 @@
 
 [resource]
 resource_name = "fontezona"
+size = 26
 font_data = ExtResource( 1 )

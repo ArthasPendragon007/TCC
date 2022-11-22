@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://font/PressStart2P.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprite/Background-menu.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
@@ -13,6 +14,7 @@ script/source = "extends Control
 
 func _ready() -> void:
 	$CanvasLayer/Controller/StartBtn.call(\"grab_focus\")
+	MusicController.play_music()
 	if get_tree():
 		show()
 #	get_node(\"Controller\").connect(\"pressed\",self,\"_on_Controller_pressed\")
@@ -28,6 +30,13 @@ func _on_SettingsBtn_pressed() -> void:
 	var SettingsScreen = load(\"res://Levels/scene/InterfaceChilds/SettingsScreen.tscn\").instance()
 	get_tree().current_scene.add_child (SettingsScreen)
 	_on_Controller_hide()
+
+func _on_Creditos_pressed() -> void:
+	var Creditos = load(\"res://Levels/scene/InterfaceChilds/Creditos.tscn\").instance()
+	get_tree().current_scene.add_child (Creditos)
+	_on_Controller_hide()
+
+
 func _on_QuitBtn_pressed() -> void:
 	get_tree().quit()
 
@@ -91,15 +100,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -368, 517 )
 script = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="."]
-light_mask = 2
-margin_right = 1024.0
-margin_bottom = 600.0
-color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -182,10 +182,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitBtn" type="Button" parent="CanvasLayer/Controller"]
+[node name="Creditos" type="Button" parent="CanvasLayer/Controller"]
 margin_top = 132.0
 margin_right = 325.0
 margin_bottom = 182.0
+rect_pivot_offset = Vector2( -1180.32, -182.84 )
+focus_neighbour_top = NodePath("../StartBtn")
+focus_neighbour_bottom = NodePath("../SettingsBtn")
+theme = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.890196, 0.780392, 0.152941, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.560784, 0.00392157, 1 )
+text = "Creditos"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitBtn" type="Button" parent="CanvasLayer/Controller"]
+margin_top = 176.0
+margin_right = 325.0
+margin_bottom = 226.0
 focus_neighbour_top = NodePath("../SettingsBtn")
 focus_neighbour_bottom = NodePath("../StartBtn")
 theme = SubResource( 6 )
@@ -204,6 +226,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color( 0.32549, 0.305882, 0.298039, 1 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -164.5
@@ -216,10 +239,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 518.503, 298.451 )
+scale = Vector2( 2.0014, 2.0089 )
+texture = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 2
+margin_left = 9.52441
+margin_top = -37.3039
+margin_right = 1033.52
+margin_bottom = 562.696
+color = Color( 0, 0, 0, 0.164706 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="focus_exited" from="." to="." method="_on_startscreen_focus_exited"]
 [connection signal="hide" from="CanvasLayer/Controller" to="." method="_on_Controller_hide"]
 [connection signal="tree_entered" from="CanvasLayer/Controller" to="." method="_on_Controller_tree_entered"]
 [connection signal="pressed" from="CanvasLayer/Controller/StartBtn" to="." method="_on_StartBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Controller/ControlsBtn" to="." method="_on_ControlsBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Controller/SettingsBtn" to="." method="_on_SettingsBtn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Controller/Creditos" to="." method="_on_Creditos_pressed"]
 [connection signal="pressed" from="CanvasLayer/Controller/QuitBtn" to="." method="_on_QuitBtn_pressed"]

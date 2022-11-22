@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Levels/ParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Pacotes/HUD.tscn" type="PackedScene" id=2]
@@ -1136,6 +1136,9 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 } ]
 73/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 5.91033, 57.6697 )
+
 [node name="Quarto_Level" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -1201,6 +1204,16 @@ editor_draw_drag_margin = true
 
 [node name="Transition_In" parent="." instance=ExtResource( 13 )]
 
+[node name="Segundo_Aviso_Boss" type="Area2D" parent="."]
+position = Vector2( 76.1952, 93.6567 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Segundo_Aviso_Col" type="CollisionShape2D" parent="Segundo_Aviso_Boss"]
+position = Vector2( 520.515, 327.95 )
+shape = SubResource( 48 )
+
 [connection signal="DoorClosed" from="ArenaDoor2" to="BOSS_Parda" method="_on_ArenaDoor2_DoorClosed"]
 [connection signal="PlayerEntered" from="Trigger" to="ArenaDoor" method="_on_Trigger_PlayerEntered"]
 [connection signal="PlayerEntered" from="Trigger" to="ArenaDoor2" method="_on_Trigger_PlayerEntered"]
@@ -1210,3 +1223,5 @@ editor_draw_drag_margin = true
 [connection signal="BossDead" from="BOSS_Parda" to="ArenaDoor2" method="_on_BOSS_Parda_BossDead"]
 [connection signal="BossDead" from="BOSS_Parda" to="Player" method="_on_BOSS_Parda_BossDead"]
 [connection signal="BossDead" from="BOSS_Parda" to="." method="_on_BOSS_Parda_BossDead"]
+[connection signal="body_entered" from="Segundo_Aviso_Boss" to="Player" method="_on_Segundo_Aviso_Boss_body_entered"]
+[connection signal="body_exited" from="Segundo_Aviso_Boss" to="Player" method="_on_Segundo_Aviso_Boss_body_exited"]

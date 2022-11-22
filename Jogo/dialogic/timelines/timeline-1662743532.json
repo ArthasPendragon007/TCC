@@ -2,12 +2,18 @@
 	"events": [
 		{
 			"event_id": "dialogic_024",
-			"set_theme": "default-theme.cfg"
+			"set_theme": "theme-1669068585.cfg"
 		},
 		{
 			"background": "res://sprite/historyhigh.png",
 			"event_id": "dialogic_021",
 			"fade_duration": 1
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DICA: [color=#A5EFAC]CLIQUE[/color] NO BOTÃO ESQUERDO DO MOUSE OU [color=#A5EFAC]ENTER[/color] PARA INTERAGIR."
 		},
 		{
 			"character": "",
@@ -19,13 +25,19 @@
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Além de encontrar perigos fora do seu território, assim podendo ir na cidade, fazendas ou ir na estrada e acabar por ser atropelado."
+			"text": "Além de encontrar perigos fora do seu território, assim podendo ir para a cidade, fazendas ou passar pela estrada e acabar sendo atropelado."
 		},
 		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Você é um desses e terá que fugir e sobreviver nessas adversidades."
+			"text": "Você está na perspectitiva desse animal, será necessário fugir e sobreviver nessas adversidades."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DICA: PRESSIONE A SETA PARA [color=#A5EFAC]ESQUERDA[/color] OU PARA [color=#A5EFAC]DIREITA[/color] PARA SE MOVER."
 		},
 		{
 			"change_scene": "res://Levels/Level_1/fase_1/Fase_1.tscn",

@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 65.0516, 9.30687 )
 
-[node name="Hitbox" type="Area2D"]
+[node name="Hitbox_Onca" type="Area2D"]
 collision_layer = 64
 
 [node name="Collision" type="CollisionShape2D" parent="."]

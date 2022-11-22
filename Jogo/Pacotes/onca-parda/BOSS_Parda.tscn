@@ -21,7 +21,7 @@
 [ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca fechada/boss onça-parda4.png" type="Texture" id=19]
 [ext_resource path="res://sprite/Onça-Parda/Idle/Idle boca aberta/boss onça-parda4.png" type="Texture" id=20]
 [ext_resource path="res://Pacotes/onca-parda_Jump.tres" type="Animation" id=21]
-[ext_resource path="res://Pacotes/Hitbox.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Pacotes/Hitbox_Onca.tscn" type="PackedScene" id=22]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -35,11 +35,6 @@ animations = [ {
 "name": "Run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "Idle boca fechada",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 5 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "Idle boca aberta ",
@@ -48,6 +43,11 @@ animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "Idle boca fechada",
 "speed": 5.0
 } ]
 

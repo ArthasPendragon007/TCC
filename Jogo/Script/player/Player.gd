@@ -119,11 +119,11 @@ func jump(delta) -> void:
 	var jump_stop = Input.is_action_just_released("ui_up")
 	var jumpW_stop = Input.is_action_just_released("W")
 	
-	yield(get_tree().create_timer(0.025), "timeout")
+	
 	if is_on_floor(): 
 		if jump or jumpW:
 			velocity.y = JUMP_FORCE
-	elif jump_stop and jumpW and velocity.y < 0:
+	elif (jump_stop or jumpW) and velocity.y < 0:
 		velocity.y = lerp(velocity.y, 0, 0.3)
 func animated() -> void:
 	
@@ -135,6 +135,8 @@ func animated() -> void:
 			animate.play("run") # pegue o $animate e rode a ani,ação chamada "idle"
 		if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"): # se apertar o botão "ui_right" ou "ui_left" faça isso
 			matriz[0] = true  # ativa a propriedade do animate chamada 'playing'
+		if Input.is_action_pressed("A") or Input.is_action_pressed("D"):
+			matriz[0] = true
 	if !is_on_floor() and abs(velocity.y) > 10:
 		animate.play("jump")
 		if animate.frame == 2:
@@ -170,6 +172,12 @@ func _on_Dialogo_Empurrar_body_entered(body: Node):
 	if body.name == "Player":
 		var dialogo_Empurrar = Dialogic.start("MecânicaEmpurrar")
 		add_child(dialogo_Empurrar)
+
+
+func _on_Segundo_Aviso_Boss_body_entered(body):
+	if body.name == "Player":
+		var Segundo_Aviso_Boss = Dialogic.start("Segundo_aviso_boss")
+		add_child(Segundo_Aviso_Boss)
 
 func _on_Dialogo_AD_body_exited(body: Node):
 	var dialogo_AD = Dialogic.start("ControleAD")
@@ -208,6 +216,10 @@ func _on_Dialogo_Lobeira_body_exited(body):
 	if body.name == "Player":
 		get_parent().get_node("Dialogo_Lobeira/col").queue_free()
 
+
+func _on_Segundo_Aviso_Boss_body_exited(body):
+	if body.name == "Player":
+		get_parent().get_node("Segundo_Aviso_Boss/Segundo_Aviso_Col").queue_free()
 #----------------------------------------------------------------------------
 
 
@@ -259,6 +271,11 @@ func _on_Trigger_PlayerEntered():
 
 func _on_BOSS_Parda_BossDead():
 	camera.current = true
+
+
+
+
+
 
 
 
